@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FiMoon, FiSun } from "react-icons/fi";
 
-export function ThemeToggle() {
+export function ModeToggle() {
   const storedTheme = localStorage.getItem("theme") || "light";
   document.documentElement.setAttribute("data-theme", storedTheme);
 
