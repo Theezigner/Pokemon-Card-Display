@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+#  Pokémon Card Display App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A front-end evaluation project built to fetch, display, and manage pokemon card from the **Pokémon API (PokéAPI)** using a modern React stack. The application showcases abilities in data fetching, routing, state management, and responsive UI design with Tailwind CSS.
 
-Currently, two official plugins are available:
+##  Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **API Data Fetching:** Loads a list of Pokémon from the PokéAPI.
+- **Card-Based UI:** Displays each Pokémon as a responsive, stylized card with a subtle gradient border.
+- **Loading State:** Implements a custom **Skeleton Loader** to provide a better perceived performance during data fetching.
+- **Error Handling:** Dedicated error component for graceful failure during data loading.
+- **Infinite Scrolling/Load More (Bonus):** Includes a "Load More" button for fetching additional Pokémon.
+- **Search/Filter (Bonus):** Allows users to filter the displayed cards by name.
+- **Routing:** Utilizes TanStack Router for type-safe, performance-optimized routing.
+- **SEO/Head Management:** Uses `@unhead/react` for setting dynamic page titles and meta tags.
 
-## React Compiler
+##  Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework:** React.js (via Vite)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS (with `daisyUI` for minor utilities)
+- **Routing:** `@tanstack/react-router`
+- **Data Fetching:** `axios`
+- **Head Management:** `@unhead/react`
 
-## Expanding the ESLint configuration
+##  API Used
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| API Name | Description | Base URL |
+| :--- | :--- | :--- |
+| **Pokémon API (PokéAPI)** | A comprehensive RESTful API for Pokémon data. | `https://pokeapi.co/api/v2/` |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+##  Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Follow these steps to run the project locally on your machine.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Prerequisites
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+You need to have **Node.js** (LTS version recommended) and **npm** installed.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Installation
+
+1.  **Clone the Repository:**
+    ```bash
+    git clone [https://github.com/Theezigner/Pokemon-Card-Display.git]
+    cd pokemon-card-display
+    ```
+
+2.  **Install Dependencies:**
+    This command installs all necessary packages listed in `package.json`.
+    ```bash
+    pnpm install
+    ```
+
+3.  **Run the Development Server:**
+    This command starts the Vite development server.
+    ```bash
+    pnpm run dev
+    ```
+
+The application will typically be available at `http://localhost:5173` (or the port specified in your terminal).
+
+### Build for Production
+
+To create a production-ready build:
+```bash
+pnpm run build
 ```
